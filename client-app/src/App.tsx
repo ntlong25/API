@@ -8,14 +8,13 @@ function App() {
 
   useEffect(() => {
     axios.get('https://localhost:5001/api/Activities').then(response => {
-      console.log(response);
+      console.log(response.data);
       setActivities(response.data);
     })
   }, [])
   return (
     <div>
       <Header as='h2' icon='users' content='Reactivities'/>
-      <header className="App-header">
         <List>
           {activities.map((activity: any) =>(
             <List.Item key={activity.id}>
@@ -23,7 +22,6 @@ function App() {
             </List.Item>
           ))}
         </List>
-      </header>
     </div>
   );
 }
